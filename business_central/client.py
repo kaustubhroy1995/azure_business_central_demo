@@ -1,6 +1,8 @@
 """Business Central invoice API client."""
 
 import logging
+from typing import Optional
+
 import requests
 
 from .auth import Authenticator
@@ -59,7 +61,7 @@ class BusinessCentralClient:
             "Content-Type": "application/json",
         }
 
-    def _invoices_url(self, invoice_id: str | None = None) -> str:
+    def _invoices_url(self, invoice_id: Optional[str] = None) -> str:
         """Return the invoices endpoint URL."""
         url = f"{self._base_url}/salesInvoices"
         if invoice_id:
@@ -75,7 +77,7 @@ class BusinessCentralClient:
         resp.raise_for_status()
         return resp.json()
 
-    def _do_update(self, invoice_id: str, data: dict, etag: str | None = None) -> dict:
+    def _do_update(self, invoice_id: str, data: dict, etag: Optional[str] = None) -> dict:
         url = self._invoices_url(invoice_id)
         headers = self._headers()
         if etag:

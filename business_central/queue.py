@@ -36,8 +36,8 @@ class RequestQueue:
                     self._timestamps.append(now)
                     return
                 # Calculate how long to wait.
-                wait = 60 - (now - self._timestamps[0])
-            time.sleep(max(wait, 0.1))
+                wait = max(0.1, 60 - (now - self._timestamps[0]))
+            time.sleep(wait)
 
     def submit(self, fn: Callable[..., Any], *args: Any, **kwargs: Any) -> Any:
         """Submit a callable through the queue.

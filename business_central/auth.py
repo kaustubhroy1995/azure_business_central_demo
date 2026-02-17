@@ -1,5 +1,7 @@
 """OAuth2 authentication for Business Central using Microsoft Entra ID (Azure AD)."""
 
+from typing import Optional
+
 import msal
 
 # The scope required for Business Central API access.
@@ -18,7 +20,7 @@ class Authenticator:
             client_credential=self._client_secret,
             authority=self._authority,
         )
-        self._token_cache: dict | None = None
+        self._token_cache: Optional[dict] = None
 
     def get_access_token(self) -> str:
         """Acquire an access token (cached if still valid).

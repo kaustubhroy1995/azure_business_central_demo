@@ -1,57 +1,23 @@
 {
-    // ============================================================================
-    // Business Central API Configuration File
-    // ============================================================================
-    //
-    // INSTRUCTIONS:
-    //   1. Copy this file to "config.json" (which is gitignored).
-    //   2. Fill in the values below with your actual credentials.
-    //   3. NEVER commit the real "config.json" to version control.
-    //
-    // HOW TO OBTAIN THESE VALUES:
-    //   Ask your Azure / Microsoft 365 admin for the following:
-    //
-    //   - tenant_id:
-    //       Your Azure Active Directory (Entra ID) tenant ID.
-    //       Found in Azure Portal > Azure Active Directory > Overview > Tenant ID.
-    //
-    //   - client_id:
-    //       The Application (client) ID of the app registration in Azure AD
-    //       that has been granted access to the Business Central API.
-    //       Found in Azure Portal > App registrations > <your app> > Overview.
-    //
-    //   - client_secret:
-    //       A client secret generated for the above app registration.
-    //       Found in Azure Portal > App registrations > <your app> >
-    //       Certificates & secrets > Client secrets.
-    //       NOTE: The secret value is only shown once when created. Store it
-    //       securely.
-    //
-    //   - environment:
-    //       The Business Central environment name (e.g., "production", "sandbox").
-    //       Found in Business Central Admin Center > Environments.
-    //
-    //   - company_id:
-    //       The GUID of the company within Business Central you want to target.
-    //       You can find it by calling:
-    //         GET https://api.businesscentral.dynamics.com/v2.0/{tenant_id}/{environment}/api/v2.0/companies
-    //       or in Business Central under Settings > Company Information.
-    //
-    // APP REGISTRATION REQUIREMENTS (ask your admin to set up):
-    //   1. Register an application in Azure AD (Entra ID).
-    //   2. Under "API permissions", add:
-    //        - Dynamics 365 Business Central > Application permissions:
-    //            * API.ReadWrite.All
-    //            * Automation.ReadWrite.All  (if you need automation endpoints)
-    //   3. Grant admin consent for the permissions.
-    //   4. Create a client secret under "Certificates & secrets".
-    //   5. Note the Tenant ID, Client ID, and Client Secret.
-    //
-    // ============================================================================
-
     "tenant_id": "YOUR_AZURE_AD_TENANT_ID",
     "client_id": "YOUR_APP_REGISTRATION_CLIENT_ID",
     "client_secret": "YOUR_APP_REGISTRATION_CLIENT_SECRET",
     "environment": "production",
-    "company_id": "YOUR_BUSINESS_CENTRAL_COMPANY_GUID"
+    "company_id": "YOUR_BUSINESS_CENTRAL_COMPANY_GUID",
+
+    "_documentation": {
+        "_instructions": "Copy this file to config.json (which is gitignored) and fill in your credentials. NEVER commit config.json to version control.",
+
+        "tenant_id": "Your Azure Active Directory (Entra ID) tenant ID. Found in Azure Portal > Azure Active Directory > Overview > Tenant ID.",
+
+        "client_id": "The Application (client) ID of the app registration in Azure AD that has been granted access to the Business Central API. Found in Azure Portal > App registrations > your app > Overview.",
+
+        "client_secret": "A client secret generated for the above app registration. Found in Azure Portal > App registrations > your app > Certificates & secrets > Client secrets. NOTE: The secret value is only shown once when created.",
+
+        "environment": "The Business Central environment name (e.g. production, sandbox). Found in Business Central Admin Center > Environments.",
+
+        "company_id": "The GUID of the company within Business Central you want to target. Find it by calling GET https://api.businesscentral.dynamics.com/v2.0/{tenant_id}/{environment}/api/v2.0/companies or in Business Central under Settings > Company Information.",
+
+        "_app_registration_setup": "Ask your admin to: (1) Register an application in Azure AD (Entra ID). (2) Under API permissions, add Dynamics 365 Business Central > Application permissions > API.ReadWrite.All. (3) Grant admin consent. (4) Create a client secret under Certificates & secrets. (5) Share the Tenant ID, Client ID, Client Secret, Environment, and Company ID."
+    }
 }

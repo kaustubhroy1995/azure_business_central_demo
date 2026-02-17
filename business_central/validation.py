@@ -1,5 +1,6 @@
 """Input validation for Business Central invoice operations."""
 
+from typing import List
 import uuid
 
 # Fields accepted when creating or updating an invoice.
@@ -59,7 +60,7 @@ def _is_valid_uuid(value: str) -> bool:
         return False
 
 
-def validate_invoice_request(request: dict) -> list[str]:
+def validate_invoice_request(request: dict) -> List[str]:
     """Validate an incoming invoice operation request.
 
     Expected request format:
@@ -75,7 +76,7 @@ def validate_invoice_request(request: dict) -> list[str]:
     Returns:
         A list of validation error strings. Empty list means valid.
     """
-    errors: list[str] = []
+    errors: List[str] = []
 
     if not isinstance(request, dict):
         return ["Request must be a JSON object."]
